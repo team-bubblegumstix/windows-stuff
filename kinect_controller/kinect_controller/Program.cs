@@ -13,6 +13,8 @@ namespace Simple_Kinect
 {
     public class Program
     {
+        public static int cycleCounter = 0; // counts the number of times the function is sending data 
+                                            // in order to calculate the sensor sample rate
         private static void kinect_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
             Skeleton[] skeletons = new Skeleton[0];
@@ -64,13 +66,14 @@ namespace Simple_Kinect
                             peerStream.Write(to_send, 0, to_send.Length);
                             peerStream.Close();
                             cli.Close();
-
+                            counter++;
+                            Console.WriteLine("Number of times called: " + counter);
                         }
                         catch (Exception)
                         {
                             Console.WriteLine("ERROR: Could not connect to Bluetooth Server");
                         }
-                        Thread.Sleep(100); // 10Hz update rate
+                        //Thread.Sleep(100); // 10Hz update rate
                     }
                 }
             }
