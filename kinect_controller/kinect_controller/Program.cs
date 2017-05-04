@@ -61,12 +61,12 @@ namespace Simple_Kinect
 
                             // Send this players left and right arm data
                             string msg = String.Format("{0}{1}{2}{3}{4}", Convert.ToChar(skel.TrackingId), Convert.ToChar(leftWrist_Y), Convert.ToChar(leftWrist_Z), Convert.ToChar(rightWrist_Y), Convert.ToChar(rightWrist_Z));
-                            Console.WriteLine("Sending msg");
+                            Console.WriteLine("Sending msg");//
                             Byte[] to_send = System.Text.Encoding.ASCII.GetBytes(msg);
                             peerStream.Write(to_send, 0, to_send.Length);
                             peerStream.Close();
                             cli.Close();
-                            counter++;
+                            cycleCounter++;
                             Console.WriteLine("Number of times called: " + cycleCounter);
                         }
                         catch (Exception)
