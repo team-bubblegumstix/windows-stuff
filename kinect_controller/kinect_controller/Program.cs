@@ -67,7 +67,7 @@ namespace Simple_Kinect
                             peerStream.Close();
                             cli.Close();
                             counter++;
-                            Console.WriteLine("Number of times called: " + counter);
+                            Console.WriteLine("Number of times called: " + cycleCounter);
                         }
                         catch (Exception)
                         {
